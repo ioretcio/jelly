@@ -41,9 +41,9 @@ for (let i = 0; i < ccount; i++) {
         }
     }
 }
-
-
 var canvas = document.createElement("canvas")
+document.body.style.margin = 0
+document.body.style.padding = 0
 document.body.appendChild(canvas)
 canvas.width = document.documentElement.clientWidth;
 canvas.height = document.documentElement.clientHeight;
