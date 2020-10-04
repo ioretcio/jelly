@@ -48,7 +48,7 @@ document.body.appendChild(canvas)
 canvas.width = document.documentElement.clientWidth;
 canvas.height = document.documentElement.clientHeight;
 var context = canvas.getContext("2d")
-context.strokeStyle = "black"
+context.strokeStyle = "pink"
 context.fillStyle = "black"
 context.fillRect(0, 0, canvas.width, canvas.height)
 canvas.addEventListener('click', function (event) {
