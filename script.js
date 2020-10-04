@@ -59,7 +59,12 @@ canvas.addEventListener('click', function (event) {
 
     }
 })
+let iterator = 0
+function getRandomInt(max) {
+    return Math.floor(Math.random() * Math.floor(max));
+}
 window.requestAnimationFrame(function loop() {
+
     context.clearRect(0, 0, canvas.width, canvas.height)
     context.fillRect(0, 0, canvas.width, canvas.height)
 
@@ -68,14 +73,22 @@ window.requestAnimationFrame(function loop() {
         let aoY = verticles[i].Y
         verticles[i].X += verticles[i].X - verticles[i].oldX + verticles[i].accelerationX
         verticles[i].Y += verticles[i].Y - verticles[i].oldY + verticles[i].accelerationY
-        if (verticles[i].X >= canvas.width)
+        if (verticles[i].X >= canvas.width) {
+            context.strokeStyle = "rgb(" + getRandomInt(255) + "," + getRandomInt(255) + "," + getRandomInt(255) + ")"
             verticles[i].X = canvas.width - 0.1
-        if (verticles[i].Y >= canvas.height)
+        }
+        if (verticles[i].Y >= canvas.height) {
+            context.strokeStyle = "rgb(" + getRandomInt(255) + "," + getRandomInt(255) + "," + getRandomInt(255) + ")"
             verticles[i].Y = canvas.height - 0.1
-        if (verticles[i].X <= 0)
+        }
+        if (verticles[i].X <= 0) {
+            context.strokeStyle = "rgb(" + getRandomInt(255) + "," + getRandomInt(255) + "," + getRandomInt(255) + ")"
             verticles[i].X = 0.1
-        if (verticles[i].Y <= 0)
+        }
+        if (verticles[i].Y <= 0) {
+            context.strokeStyle = "rgb(" + getRandomInt(255) + "," + getRandomInt(255) + "," + getRandomInt(255) + ")"
             verticles[i].Y = 0.1
+        }
         verticles[i].oldX = aoX;
         verticles[i].oldY = aoY;
     }
