@@ -48,7 +48,7 @@ document.body.appendChild(canvas)
 canvas.width = document.documentElement.clientWidth;
 canvas.height = document.documentElement.clientHeight;
 var context = canvas.getContext("2d")
-context.strokeStyle = "pink"
+context.strokeStyle = "yellow"
 context.fillStyle = "black"
 context.fillRect(0, 0, canvas.width, canvas.height)
 canvas.addEventListener('click', function (event) {
@@ -61,6 +61,7 @@ canvas.addEventListener('click', function (event) {
 })
 window.requestAnimationFrame(function loop() {
     context.clearRect(0, 0, canvas.width, canvas.height)
+    context.fillRect(0, 0, canvas.width, canvas.height)
 
     for (var i = 0; i < verticles.length; i++) {
         let aoX = verticles[i].X
