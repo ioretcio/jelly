@@ -84,7 +84,7 @@ window.requestAnimationFrame(function loop() {
         let wantedLen = edges[i].originalLength
         let currLen = Math.sqrt(Math.pow(a.X - b.X, 2) + Math.pow(a.Y - b.Y, 2))
         let coef = currLen / wantedLen
-        let onceCoef = 1 + ((1 - coef) / 200)
+        let onceCoef = 1 + ((1 - coef) / 100)
         let diff = new Verticle(a.X - b.X, a.Y - b.Y)
         edges[i].b.X = edges[i].a.X - diff.X * onceCoef;
         edges[i].b.Y = edges[i].a.Y - diff.Y * onceCoef;
