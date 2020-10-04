@@ -49,7 +49,7 @@ canvas.width = document.documentElement.clientWidth;
 canvas.height = document.documentElement.clientHeight;
 var context = canvas.getContext("2d")
 context.strokeStyle = "pink"
-context.fillStyle = "pink"
+context.fillStyle = "black"
 context.fillRect(0, 0, canvas.width, canvas.height)
 canvas.addEventListener('click', function (event) {
     for (var i = 0; i < verticles.length; i++) {
