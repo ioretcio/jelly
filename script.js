@@ -1,3 +1,5 @@
+
+
 class Verticle {
     constructor(X, Y) {
         this.X = X;
@@ -5,7 +7,7 @@ class Verticle {
         this.oldX = X;
         this.oldY = Y;
         this.accelerationX = 0;
-        this.accelerationY = 0.05;
+        this.accelerationY = 0.1;
     }
 }
 class Edge {
@@ -15,11 +17,13 @@ class Edge {
         this.originalLength = Math.sqrt(Math.pow(a.X - b.X, 2) + Math.pow(a.Y - b.Y, 2));
     }
 }
+
+//import Delaunator from 'node_modules/delaunator'
 let edges = []
 let verticles = []
 let center = new Verticle(300, 300);
 let current = new Verticle(200, 200);
-let ccount = 18
+let ccount = 9
 for (let i = 0; i < ccount; i++) {
     let xx = current.X
     let yy = current.Y
@@ -34,6 +38,13 @@ for (let i = 0; i < ccount; i++) {
     current.X += center.X;
     current.Y += center.Y;
 }
+
+//const points = [[168, 180], [168, 178], [168, 179], [168, 181], [168, 183], ...];
+//console.log(delaunay.triangles);
+
+
+
+
 for (let i = 0; i < ccount; i++) {
     for (let j = 0; j < ccount; j++) {
         if (i != j) {
@@ -74,19 +85,19 @@ window.requestAnimationFrame(function loop() {
         verticles[i].X += verticles[i].X - verticles[i].oldX + verticles[i].accelerationX
         verticles[i].Y += verticles[i].Y - verticles[i].oldY + verticles[i].accelerationY
         if (verticles[i].X >= canvas.width) {
-            context.strokeStyle = "rgb(" + getRandomInt(255) + "," + getRandomInt(255) + "," + getRandomInt(255) + ")"
+            //  context.strokeStyle = "rgb(" + getRandomInt(255) + "," + getRandomInt(255) + "," + getRandomInt(255) + ")"
             verticles[i].X = canvas.width - 0.1
         }
         if (verticles[i].Y >= canvas.height) {
-            context.strokeStyle = "rgb(" + getRandomInt(255) + "," + getRandomInt(255) + "," + getRandomInt(255) + ")"
+            //context.strokeStyle = "rgb(" + getRandomInt(255) + "," + getRandomInt(255) + "," + getRandomInt(255) + ")"
             verticles[i].Y = canvas.height - 0.1
         }
         if (verticles[i].X <= 0) {
-            context.strokeStyle = "rgb(" + getRandomInt(255) + "," + getRandomInt(255) + "," + getRandomInt(255) + ")"
+            //context.strokeStyle = "rgb(" + getRandomInt(255) + "," + getRandomInt(255) + "," + getRandomInt(255) + ")"
             verticles[i].X = 0.1
         }
         if (verticles[i].Y <= 0) {
-            context.strokeStyle = "rgb(" + getRandomInt(255) + "," + getRandomInt(255) + "," + getRandomInt(255) + ")"
+            //context.strokeStyle = "rgb(" + getRandomInt(255) + "," + getRandomInt(255) + "," + getRandomInt(255) + ")"
             verticles[i].Y = 0.1
         }
         verticles[i].oldX = aoX;
